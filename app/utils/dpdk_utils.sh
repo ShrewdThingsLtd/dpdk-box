@@ -59,7 +59,7 @@ export DPDK_TARGET=${DPDK_TARGET};\
 source ${TGT_SRC_DIR}/dpdk-box/app/utils/exec_utils.sh;\
 source ${TGT_SRC_DIR}/dpdk-box/app/utils/git_utils.sh;\
 source ${TGT_SRC_DIR}/dpdk-box/app/utils/dpdk_utils.sh;\
-source ${TGT_SRC_DIR}/dpdk-box/runtime/dpdk_runtime.sh;\
+source ${TGT_SRC_DIR}/dpdk-box/runtime/utils/dpdk_runtime.sh;\
 yum -y install numactl-devel;\
 dpdk_clone;\
 dpdk_kni_build_disable;\
