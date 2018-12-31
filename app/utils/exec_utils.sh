@@ -21,9 +21,9 @@ exec_log() {
 
 exec_remote() {
 
-	echo
-	echo "<<<< exec_remote >>>>"
-	echo
+	#echo
+	#echo "<<<< exec_remote >>>>"
+	#echo
 	set +x
 	local remote_dir="$1"
 	local remote_cmd="$2"
@@ -40,9 +40,9 @@ exec_remote() {
 
 exec_tgt() {
 
-	echo
-	echo "<<<< exec_tgt >>>>"
-	echo
+	#echo
+	#echo "<<<< exec_tgt >>>>"
+	#echo
 	set +x
 	local remote_dir="$1"
 	local remote_cmd="$2"
