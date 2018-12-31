@@ -25,6 +25,7 @@ COPY runtime/ ${SRC_DIR}/runtime/
 ENV BASH_ENV=${SRC_DIR}/app-entrypoint.sh
 
 WORKDIR $DPDK_DIR
+ONBUILD RUN find ${SRC_DIR}/ -type f
 ONBUILD COPY app/ ${SRC_DIR}/
 
 ONBUILD RUN \
