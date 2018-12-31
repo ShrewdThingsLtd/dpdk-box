@@ -56,14 +56,13 @@ export DPDK_DIR=${TGT_SRC_DIR}/dpdk;\
 export DPDK_REPO=${DPDK_REPO};\
 export DPDK_VERSION=${DPDK_VERSION};\
 export DPDK_TARGET=${DPDK_TARGET};\
-export UTILS_DIR=${TGT_SRC_DIR}/docker-dpdk/utils;\
-source ${TGT_SRC_DIR}/docker-dpdk/app/utils/exec_utils.sh;\
-source ${TGT_SRC_DIR}/docker-dpdk/app/utils/git_utils.sh;\
-source ${TGT_SRC_DIR}/docker-dpdk/app/utils/dpdk_utils.sh;\
-source ${TGT_SRC_DIR}/docker-dpdk/app/runtime/dpdk_runtime.sh;\
+source ${TGT_SRC_DIR}/dpdk-box/app/utils/exec_utils.sh;\
+source ${TGT_SRC_DIR}/dpdk-box/app/utils/git_utils.sh;\
+source ${TGT_SRC_DIR}/dpdk-box/app/utils/dpdk_utils.sh;\
+source ${TGT_SRC_DIR}/dpdk-box/runtime/dpdk_runtime.sh;\
 yum -y install numactl-devel;\
 dpdk_clone;\
-dpdk_kni_disable;\
+dpdk_kni_build_disable;\
 dpdk_build"
 ##################
 echo "${remote_install_cmd}"
