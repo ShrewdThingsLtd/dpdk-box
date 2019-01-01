@@ -32,9 +32,12 @@ exec_remote() {
 	local remote_pass="$5"
 
 	local exec_cmd="cd ${remote_dir}; ${remote_cmd}"
-	local ssh_cmd="sshpass -p ${remote_pass} ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ${remote_user}@${remote_ip} /bin/bash -c '${exec_cmd}'"
-	local ssh_result="$(${ssh_cmd})"
-	print_log ">>> [%s]\n%s\n%s\n" "${ssh_cmd}" "${ssh_result}" "---"
+	local ssh_verb="${remote_user}@${remote_ip} /bin/bash -c '${exec_cmd}'"
+	local ssh_cmd="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ${ssh_verb}"
+	local sshpass_cmd="sshpass -p ${remote_pass} ${ssh_cmd}"
+	local ssh_result="$(${sshpass_cmd})"
+	print_log ">>> [%s]\n%s\n%s\n" "ssh ${ssh_verb}" "${ssh_result}" "---"
+	echo "${ssh_result}"
 	set +x
 }
 

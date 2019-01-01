@@ -45,29 +45,5 @@ dpdk_build() {
 	cd -
 }
 
-dpdk_remote_install() {
-
-	echo "dpdk_remote_install: TGT_SRC_DIR=$TGT_SRC_DIR TGT_IP=$TGT_IP TGT_USER=$TGT_USER"
-	remote_install_dir="${TGT_SRC_DIR}"
-##################
-remote_install_cmd="\
-export SRC_DIR=${TGT_SRC_DIR};\
-export DPDK_DIR=${TGT_SRC_DIR}/dpdk;\
-export DPDK_REPO=${DPDK_REPO};\
-export DPDK_VERSION=${DPDK_VERSION};\
-export DPDK_TARGET=${DPDK_TARGET};\
-source ${TGT_SRC_DIR}/dpdk-box/app/utils/exec_utils.sh;\
-source ${TGT_SRC_DIR}/dpdk-box/app/utils/git_utils.sh;\
-source ${TGT_SRC_DIR}/dpdk-box/app/utils/dpdk_utils.sh;\
-source ${TGT_SRC_DIR}/dpdk-box/runtime/utils/dpdk_runtime.sh;\
-yum -y install numactl-devel;\
-dpdk_clone;\
-dpdk_kni_build_disable;\
-dpdk_build"
-##################
-echo "${remote_install_cmd}"
-	exec_tgt "${remote_install_dir}" "${remote_install_cmd}"
-}
-
 set +x
 

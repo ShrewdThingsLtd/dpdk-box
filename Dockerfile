@@ -13,7 +13,6 @@ COPY app/ ${SRC_DIR}/
 ENV BASH_ENV=${SRC_DIR}/docker-entrypoint.sh
 SHELL ["/bin/bash", "-c"]
 
-RUN docker_tgt_install
 RUN exec_apt_update
 RUN exec_apt_install "$(dpdk_prerequisites)"
 #RUN exec_apt_clean
@@ -26,7 +25,6 @@ COPY runtime/ ${SRC_DIR}/runtime/
 ENV BASH_ENV=${SRC_DIR}/app-entrypoint.sh
 
 WORKDIR $DPDK_DIR
-ONBUILD RUN find ${SRC_DIR}/ -type f
 ONBUILD COPY app/ ${SRC_DIR}/
 
 ONBUILD RUN \
