@@ -29,6 +29,5 @@ ONBUILD COPY app/ ${SRC_DIR}/
 
 ONBUILD RUN \
 	dpdk_configure; \
-	dpdk_build; \
-	dpdk_remote_install
+	dpdk_build
 #ONBUILD RUN make clean
