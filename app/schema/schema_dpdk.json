@@ -1,0 +1,35 @@
+{
+	"type": "object",
+	"options": {
+		"disable_edit_json": true,
+		"disable_properties": true,
+		"collapsed": true
+	},
+	"properties": {
+		"DPDK Version": {
+			"type": "string",
+			"default": "v17.11-rc4"
+		},
+		"Number of 2MB Hugepages": {
+			"type": "number",
+			"default": 2048
+		},
+		"Number of 1GB Hugepages": {
+			"type": "number",
+			"default": 2
+		},
+		"Installed Poll-Mode Drivers": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "string",
+				"enum": [
+					"igb_uio", 
+					"vfio-pci"
+				]
+			},
+			"default": "igb_uio",
+			"readOnly": true
+		}
+	}
+}
