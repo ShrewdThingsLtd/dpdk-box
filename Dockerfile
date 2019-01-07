@@ -20,6 +20,7 @@ RUN exec_apt_install "$(dpdk_prerequisites)"
 RUN \
 	dpdk_clone; \
 	dpdk_userspace_config
+RUN exec_install_node
 
 COPY runtime/ ${SRC_DIR}/runtime/
 ENV BASH_ENV=${SRC_DIR}/app-entrypoint.sh

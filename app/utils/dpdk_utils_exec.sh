@@ -69,6 +69,17 @@ exec_apt_clean() {
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 }
 
+exec_install_node() {
+
+	cd /tmp
+	apt-get install -y curl
+	curl -sL https://deb.nodesource.com/setup_11.x | bash -
+	apt-get install -y nodejs
+	apt-get install -y npm
+	npm install -g http-server
+	cd -
+}
+
 exec_yum_install() {
 
 	yum -y update
