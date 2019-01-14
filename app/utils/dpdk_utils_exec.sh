@@ -77,6 +77,7 @@ exec_install_node() {
 	apt-get install -y nodejs
 	apt-get install -y npm
 	npm install -g http-server
+	apt-get -y install jq wget
 	cd -
 }
 
