@@ -82,6 +82,25 @@ exec_install_node() {
 	cd -
 }
 
+exec_install_config_editor() {
+
+	npm install -g npm@latest
+	#npm install -g bower
+	
+	mkdir -p ${SRC_DIR}/config_editor
+	cd ${SRC_DIR}/config_editor
+	bower --allow-root install -g jQuery#3.3.1
+	bower --allow-root install angular-schema-form angular-schema-form-bootstrap
+	bower --allow-root install angular-schema-form angular-schema-form-bootstrap
+	#cd ${SRC_DIR}/config_editor/bower_components/angular-schema-form
+	#bower --allow-root install
+	cd ${SRC_DIR}/config_editor/bower_components/angular-schema-form-bootstrap
+	bower --allow-root install
+	cd ${SRC_DIR}/config_editor/bower_components/angular-schema-form-bootstrap/bower_components/bootstrap/dist/css
+	wget https://cdnjs.cloudflare.com/ajax/libs/todc-bootstrap/3.4.0-3.4.1/css/bootstrap-theme.min.css
+	wget https://cdnjs.cloudflare.com/ajax/libs/todc-bootstrap/3.4.0-3.4.1/css/bootstrap-theme.min.css.map
+}
+
 exec_yum_install() {
 
 	yum -y update
