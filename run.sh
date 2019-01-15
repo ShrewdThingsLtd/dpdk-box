@@ -1,7 +1,8 @@
 #!/bin/bash
 
-IMG_DOMAIN=${1:-local}
-DPDK_VERSION=${2:-v17.11-rc4}
+DOCKER_INST=${1:-dpdk-box}
+IMG_DOMAIN=${2:-local}
+DPDK_VERSION=${3:-v17.11-rc4}
 
 docker volume rm $(docker volume ls -qf dangling=true)
 #docker network rm $(docker network ls | grep "bridge" | awk '/ / { print $1 }')
@@ -25,11 +26,18 @@ case ${IMG_DOMAIN} in
 	;;
 esac
 
+docker kill $DOCKER_INST
+docker rm $DOCKER_INST
 docker run \
-	-ti \
+	-t \
+	-d \
+	--rm \
 	--net=host \
 	--privileged \
 	-v /mnt/huge:/mnt/huge \
 	--device=/dev/uio0:/dev/uio0 \
+	--env DOCKER_INST=$DOCKER_INST \
+	--hostname=$DOCKER_INST \
+	--name=$DOCKER_INST \
 	$IMG_TAG \
 	/bin/bash
