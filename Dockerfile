@@ -21,7 +21,7 @@ RUN \
 	dpdk_clone; \
 	dpdk_userspace_config
 RUN exec_install_node
-RUN exec_install_config_editor
+#RUN exec_install_config_editor
 
 COPY runtime/ ${SRC_DIR}/runtime/
 ENV BASH_ENV=${SRC_DIR}/app-entrypoint.sh
