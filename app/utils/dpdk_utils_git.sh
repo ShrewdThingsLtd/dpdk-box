@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+#set -x
 
 git_clone() {
 
@@ -27,4 +27,4 @@ git_pull() {
 	cd -
 }
 
-set +x
+#set +x

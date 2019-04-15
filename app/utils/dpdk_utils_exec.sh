@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set +x
+#set -x
 
 print_log() {
 
@@ -24,7 +24,7 @@ exec_remote() {
 	#echo
 	#echo "<<<< exec_remote >>>>"
 	#echo
-	set +x
+	#set -x
 	local remote_dir="$1"
 	local remote_cmd="$2"
 	local remote_ip="$3"
@@ -38,7 +38,7 @@ exec_remote() {
 	local ssh_result="$(${sshpass_cmd})"
 	print_log ">>> [%s]\n%s\n%s\n" "ssh ${ssh_verb}" "${ssh_result}" "---"
 	echo "${ssh_result}"
-	set +x
+	#set +x
 }
 
 exec_tgt() {
@@ -46,12 +46,12 @@ exec_tgt() {
 	#echo
 	#echo "<<<< exec_tgt >>>>"
 	#echo
-	set +x
+	#set -x
 	local remote_dir="$1"
 	local remote_cmd="$2"
 
 	exec_remote ${remote_dir} "${remote_cmd}" ${TGT_IP} ${TGT_USER} ${TGT_PASS}
-	set +x
+	#set +x
 }
 
 exec_apt_update() {
@@ -113,4 +113,4 @@ exec_yum_install() {
 	exec_log "yum install -y $@"
 }
 
-set +x
+#set +x

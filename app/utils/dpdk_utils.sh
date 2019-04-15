@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set +x
+#set -x
 
 dpdk_prerequisites() {
 
@@ -45,5 +45,5 @@ dpdk_build() {
 	cd -
 }
 
-set +x
+#set +x
 
